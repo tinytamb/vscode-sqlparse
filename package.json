@@ -1,25 +1,94 @@
 {
-	"name": "sqlparse",
-	"displayName": "sqlparse",
+	"name": "vscode-sqlparse",
+	"displayName": "sqlparse for Visual Studio Code",
 	"description": "",
-	"version": "0.0.1",
+	"version": "1.0.0",
+	"publisher": "tinytamb",
+	"author": {"name": "mz"},
+	"icon": "images/icon.png",
+	"license": "MIT",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
+	"bugs": {
+		"url": "https://github.com/tinytamb/vscode-sqlparse/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tinytamb/vscode-sqlparse.git"
+	},
 	"categories": [
-		"Other"
+		"Formatters"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onLanguage:sql"
 	],
+	"capabilities": {
+		"documentFormattingProvider": "true"
+	},
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+		"configuration": {
+			"title": "sqlparse",
+			"properties": {
+				"sqlparse.keywordCase": {
+					"type": "string",
+					"default": "Upper case",
+					"enum": [
+						"Unchanged",
+						"Upper case",
+						"Lower case",
+						"Capitalize"
+					]
+				},
+				"sqlparse.identifierCase": {
+					"type": "string",
+					"default": "Unchanged",
+					"enum": [
+						"Unchanged",
+						"Upper case",
+						"Lower case",
+						"Capitalize"
+					]
+				},
+				"sqlparse.stripComments": {
+					"type": "boolean",
+					"default": false,
+					"description": "Remove comments"
+				},
+				"sqlparse.reindent": {
+					"type": "boolean",
+					"default": true,
+					"description": "Auto Indent"
+				},
+				"sqlparse.indentTabs": {
+					"type": "boolean",
+					"default": false,
+					"description": "Use tabs instead of spaces for indentation"
+				},
+				"sqlparse.indentWidth": {
+					"type": "number",
+					"minimum": 1,
+					"default": 2,
+					"description": "Indentation width"
+				},
+				"sqlparse.outputFormat": {
+					"type": "string",
+					"default": "SQL",
+					"description": "Programming language",
+					"enum": [
+						"SQL",
+						"Python",
+						"PHP"
+					]
+				},
+				"sqlparse.pythonPath": {
+					"type": "string",
+					"default": "/usr/bin/python3",
+					"description": "Recommend: Python version >= 3.4"
+				}
 			}
-		]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
