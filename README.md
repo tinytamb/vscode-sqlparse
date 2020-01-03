@@ -9,7 +9,7 @@ Format SQL Code.
 
 ## Requirements
 
-* Python 2.7 and Python 3 (Recommend: Python version >= 3.4)
+* Python (Recommend: Python version >= 3.4)
 
 ## Visual Studio Marketplace
 
