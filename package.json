@@ -2,9 +2,11 @@
 	"name": "vscode-sqlparse",
 	"displayName": "sqlparse for Visual Studio Code",
 	"description": "Format SQL Code",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "tinytamb",
-	"author": {"name": "mz"},
+	"author": {
+		"name": "mz"
+	},
 	"icon": "images/icon.png",
 	"license": "MIT",
 	"engines": {
