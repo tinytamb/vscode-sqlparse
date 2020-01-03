@@ -1,7 +1,7 @@
 {
 	"name": "vscode-sqlparse",
 	"displayName": "sqlparse for Visual Studio Code",
-	"description": "",
+	"description": "Format SQL Code",
 	"version": "1.0.0",
 	"publisher": "tinytamb",
 	"author": {"name": "mz"},
