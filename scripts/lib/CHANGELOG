@@ -1,11 +1,12 @@
-Development Version
--------------------
+Release 0.3.1 (Feb 29, 2020)
+----------------------------
 
 Enhancements
 
 * Add HQL keywords (pr475, by matwalk).
 * Add support for time zone casts (issue489).
 * Enhance formatting of AS keyword (issue507, by john-bodley).
+* Stabilize grouping engine when parsing invalid SQL statements.
 
 Bug Fixes
 
@@ -21,6 +22,8 @@ Bug Fixes
   have an alias (issue455, adopted some parts of pr509 by john-bodley).
 * Fix parsing of date/time literals (issue438, by vashek).
 * Fix initialization of TokenList (issue499, pr505 by john-bodley).
+* Fix parsing of LIKE (issue493, pr525 by dbczumar).
+* Improve parsing of identifiers (pr527 by liulk).
 
 
 Release 0.3.0 (Mar 11, 2019)

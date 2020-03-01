@@ -108,7 +108,7 @@ def group_typed_literal(tlist):
     # https://www.postgresql.org/docs/9.1/datatype-datetime.html
     # https://www.postgresql.org/docs/9.1/functions-datetime.html
     def match(token):
-        return token.match(*sql.TypedLiteral.M_OPEN)
+        return imt(token, m=sql.TypedLiteral.M_OPEN)
 
     def match_to_extend(token):
         return isinstance(token, sql.TypedLiteral)
@@ -164,7 +164,7 @@ def group_as(tlist):
         return token.normalized == 'NULL' or not token.is_keyword
 
     def valid_next(token):
-        ttypes = T.DML, T.DDL
+        ttypes = T.DML, T.DDL, T.CTE
         return not imt(token, t=ttypes) and token is not None
 
     def post(tlist, pidx, tidx, nidx):
@@ -254,9 +254,9 @@ def group_operator(tlist):
 
     def valid(token):
         return imt(token, i=sqlcls, t=ttypes) \
-            or token.match(
+            or (token and token.match(
                 T.Keyword,
-                ('CURRENT_DATE', 'CURRENT_TIME', 'CURRENT_TIMESTAMP'))
+                ('CURRENT_DATE', 'CURRENT_TIME', 'CURRENT_TIMESTAMP')))
 
     def post(tlist, pidx, tidx, nidx):
         tlist[tidx].ttype = T.Operator
